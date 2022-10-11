@@ -6,11 +6,11 @@
     
         @author McKilla Gorilla
     */
-  --swatch-foundation: #eeeedd; 
-  --swatch-primary: #e6e6e6; 
+  --swatch-foundation: #eeeedd;
+  --swatch-primary: #e6e6e6;
   --swatch-complement: #e1e4cb;
-  --swatch-contrast: #111111; 
-  --swatch-accent: #669966; 
+  --swatch-contrast: #111111;
+  --swatch-accent: #669966;
   --swatch-status: #123456;
   --my-font-family: "Robaaaoto";
   --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.15);
@@ -26,7 +26,7 @@ body {
   position: absolute;
   width: 80%;
   left: 10%;
-  height:90%;
+  height: 90%;
   top: 5%;
 }
 
@@ -37,7 +37,7 @@ body {
   top: 0%;
   left: 0%;
   font-family: "Tangerine";
-  display:grid;
+  display: grid;
   grid-template-columns: 70% 30%;
   grid-template-rows: 10% 80% 10%;
 }
@@ -45,8 +45,7 @@ body {
 #playlister-banner {
   grid-column: 1 / 3;
   grid-row: 1 / 2;
-  background-image: linear-gradient(to bottom,         
-  #b8b808, #636723);
+  background-image: linear-gradient(to bottom, #b8b808, #636723);
   color: white;
   font-size: 48pt;
   border-color: black;
@@ -59,21 +58,23 @@ body {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   background-color: transparent;
-  float:right;
+  float: right;
 }
 
-#playlist-selector, #playlist-cards {
+#playlist-selector,
+#playlist-cards {
   overflow: scroll;
   grid-column: 1 / 3;
   grid-row: 2 / 3;
-  display:grid;
+  display: grid;
   background-color: var(--swatch-primary);
 }
 
-.playlister-button, .playlister-button-disabled {
-  font-size:36pt;
+.playlister-button,
+.playlister-button-disabled {
+  font-size: 36pt;
   border-width: 0px;
-  float:left;
+  float: left;
   color: black;
   cursor: pointer;
   opacity: 100%;
@@ -81,11 +82,11 @@ body {
 
 .playlister-button:hover {
   cursor: pointer;
-  color:black;
+  color: black;
 }
 
 .playlister-button-disabled {
-  opacity: 0.25; 
+  opacity: 0.25;
   cursor: not-allowed;
 }
 
@@ -96,24 +97,27 @@ body {
   width: 100%;
   height: 10%;
   background-color: lightsalmon;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   font-size: 36pt;
 }
 
 #add-list-button {
-  float:left;
+  float: left;
 }
 
-.list-card, .selected-list-card, .unselected-list-card {
+.list-card,
+.selected-list-card,
+.unselected-list-card {
   font-size: 18pt;
   margin: 10px;
   padding: 20px;
   border-radius: 25px;
 }
 
-.list-card:aria-disabled,.list-card[aria-disabled] {
+.list-card:aria-disabled,
+.list-card[aria-disabled] {
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
@@ -123,7 +127,7 @@ body {
 .unselected-list-card:hover {
   cursor: pointer;
   background-color: var(--swatch-contrast);
-  color:white;
+  color: white;
 }
 
 .selected-list-card {
@@ -136,12 +140,12 @@ body {
 }
 
 .list-card-button {
-  float:right;
-  font-size:18pt;
+  float: right;
+  font-size: 18pt;
 }
 
 input {
-  font-size:20pt;
+  font-size: 20pt;
 }
 
 .disabled {
@@ -163,14 +167,12 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
   background: var(--black);
   color: var(--swatch-text);
   cursor: pointer;
   visibility: hidden;
   opacity: 0;
   transition: all 0.35s ease-in;
-  font-family: var(--font-primary);
 }
 
 .modal.is-visible {
@@ -178,58 +180,118 @@ input {
   opacity: 1;
 }
 
-.modal-dialog {
+.modal-root {
   position: relative;
-  max-width: 800px;
-  max-height: 80vh;
+  max-width: 1200vw;
+  max-height: 600vh;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
   background: var(--swatch-complement);
-  overflow: auto;
   cursor: default;
-  border-width: 5px;
-  border-radius: 10px;
-  border-style: groove;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  box-shadow: 5px 10px #888888;
+
+  width: 40%;
+  height: auto;
 }
 
-.modal-dialog > * {
+.modal-root > * {
   padding: 1rem;
 }
 
-.modal-header,
-.modal-footer {
-  background: var(--lightgray);
+.modal-north {
+  font-size: 32pt;
+  font-weight: bold;
+  background-color: #669966;
+  color: white;
 }
 
-.modal-header {
+.modal-center {
+  display: grid;
+  grid-template-columns: 30% 65%;
+  grid-template-rows: 33% 33% 33%;
+  gap: 10px 20px;
+  font-size: 48pt;
+}
+
+span {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.modal-south {
+  display: flex;
+  flex-direction: row;
+  background-color: lightgray;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-center-content {
+  grid-column: 1 / 3;
+  grid-row: 1 / 4;
+}
+
+.modal-prompt {
+  font-size: 28pt;
+  font-weight: bold;
+}
+
+.modal-textfield {
+  font-size: 28pt;
+}
+
+.modal-button {
+  font-size: 20pt;
+}
+
+#title-prompt {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+#edit-song-modal-title-textfield {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+#artist-prompt {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+#edit-song-modal-artist-textfield {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+#you-tube-id-prompt {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+#edit-song-modal-youTubeId-textfield {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+.confirm-cancel-box {
+  grid-column: 1 / 3;
+  grid-row: 3 / 4;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-bottom: dotted;
+  justify-content: center;
 }
 
-.modal-header,
-.modal-close {
-  font-size: 1.5rem;
+.modal-button {
+  margin: 5px;
 }
 
 .modal p + p {
   margin-top: 1rem;
-}
-
-.modal-control {
-  cursor: pointer;
-  width: 20%;
-}
-
-.dialog-header {
-  font-size: 24pt;
-}
-
-#close-modal-button {
-  float:right;
-}
-
-#confirm-cancel-container {
-  text-align:center;
 }
 
 /* ANIMATIONS

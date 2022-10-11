@@ -7,12 +7,12 @@ import EditToolbar from "./EditToolbar";
     @author McKilla Gorilla
 */
 function Banner(props) {
-    return (        
-        <div id="playlister-banner">
-            Playlister
-            <EditToolbar />
-        </div>
-    );
+  return (
+    <div id="playlister-banner">
+      Playlister
+      <EditToolbar />
+    </div>
+  );
 }
 
 export default Banner;
