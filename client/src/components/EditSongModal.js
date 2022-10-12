@@ -37,7 +37,7 @@ export default class EditSongModal extends Component {
           <div class="modal-north">Edit Song</div>
           <div class="modal-center">
             <div class="edit-song modal-center-content">
-              <div id="edit-song-modal-title-textfield">Title:</div>
+              <div>Title:</div>
               <input
                 type="text"
                 class="edit-song-properties"
@@ -46,7 +46,7 @@ export default class EditSongModal extends Component {
                 value={this.state.song.title}
                 onChange={this.handleChange}
               />
-              <div id="edit-song-modal-title-textfield">Artist:</div>
+              <div>Artist:</div>
               <input
                 type="text"
                 class="edit-song-properties"
@@ -55,7 +55,7 @@ export default class EditSongModal extends Component {
                 value={this.state.song.artist}
                 onChange={this.handleChange}
               />
-              <div id="edit-song-modal-title-textfield">You Tube Id:</div>
+              <div>You Tube Id:</div>
               <input
                 type="text"
                 class="edit-song-properties"
